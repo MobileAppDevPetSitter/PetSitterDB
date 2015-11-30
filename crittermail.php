@@ -1,7 +1,7 @@
 <?php
     $response = array("status" => "bad");
 
-if(!isset($_POST['email']) || !isset($_POST['password']))) {
+if(!isset($_POST['email']) || !isset($_POST['password'])) {
     $response['message'] = "Missing Input!";
     
     die($response);
@@ -70,7 +70,7 @@ if(mail($to, $subject, $message, $headers)) {
 
     echo json_encode($response);
 } else {
-    $response["message"] = "Failed to send to email account provided!"
+    $response["message"] = "Failed to send to email account provided!";
     echo json_encode($response);
 }
 ?>
