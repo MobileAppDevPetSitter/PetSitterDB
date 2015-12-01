@@ -1,10 +1,10 @@
 <?php
     $response = array("status" => "bad");
 
-    if(!isset($_POST['email']) || !isset($_POST['password'])) {
+    if(!isset($_POST['email']) || !isset($_POST['code'])) {
         $response['message'] = "Missing Input!";
         
-        die($response);
+        die(json_encode($response));
     }
 
     require '/home/robert/config/conn.php';
@@ -23,19 +23,19 @@
     
     //echo mysql_error();
     if (!$result) {
-        $response['message'] = "Creation Unsuccessful!";
+        $response['message'] = "SQL Failed";
         die(json_encode($response));
     }
     
-    if($result->num_rows==0){
+    if($result->num_rows>0){
         $response['status'] = "ok";
         $response['message'] = "Successful account creation!";
 
         echo json_encode($response);
     } else {
         
-        $response['message'] = "Creation Unsuccessful!";
-        die(json_encode($response));
+        $response['message'] = "Code does not match!";
+        echo (json_encode($response));
     }
 
 ?>
