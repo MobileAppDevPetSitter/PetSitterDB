@@ -1,4 +1,11 @@
 <?php
+    $response = array("status" => "bad");
+
+    if(!isset($_POST['email']) || !isset($_POST['password'])) {
+        $response['message'] = "Missing Input!";
+        
+        die($response);
+    }
 
     require '/home/robert/config/conn.php';
     ini_set('display_errors', 1);
@@ -16,13 +23,19 @@
     
     //echo mysql_error();
     if (!$result) {
-        die('Invalid query: ' . mysql_error());
+        $response['message'] = "Creation Unsuccessful!";
+        die(json_encode($response));
     }
     
     if($result->num_rows==0){
-        echo json_encode(['match'=>'false']); 
+        $response['status'] = "ok";
+        $response['message'] = "Successful account creation!";
+
+        echo json_encode($response);
     } else {
-        echo json_encode(['match'=>'true']);
+        
+        $response['message'] = "Creation Unsuccessful!";
+        die(json_encode($response));
     }
 
 ?>
