@@ -12,8 +12,8 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
     
-    $code = htmlspecialchars($_POST['password']);
-    $email = htmlspecialchars($_POST['email']);
+    $password = htmlspecialchars($_POST['password']);
+    $email    = htmlspecialchars($_POST['email']);
     
     
     $sql="SELECT * FROM user WHERE email = '" . $email . "';";
@@ -28,13 +28,16 @@
     }
     
     if($result->num_rows>0) {
-        $saltedPass = hash("md5", $password . mysqli_query($result, 0, "salt"));
+        $row = $result->fetch_assoc();
+        $saltedPass = hash("md5", $password.$row['salt']);
 
-        if($saltPass == mysqli_query($result, 0, "password")) {
+        
+        if($saltedPass == $row['password']) {
             $response['status'] = "ok";
-            $response['message'] = "Successful account creation!";
+            $response['message'] = "Successful login!";
+        } else {
+            $response['message'] = "Password does not match!";
         }
-        $response['message'] = "Password does not match!";
 
         echo json_encode($response);
     } else {

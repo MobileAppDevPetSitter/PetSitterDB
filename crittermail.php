@@ -39,8 +39,10 @@
     // Salt and hash of password
     $saltedPassword = hash("md5", $password.$salt);
 
+
     // SQL for insertion
     $sql="Insert into user (email, status, verification_code, password, salt) values ('" . $email . "','PENDING','" . $activation . "','" . $saltedPassword . "','" . $salt . "');";
+
 
     // Parse result
     $result = mysqli_query($mysqli,$sql);
