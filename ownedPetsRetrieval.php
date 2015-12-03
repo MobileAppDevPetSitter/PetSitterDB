@@ -1,9 +1,9 @@
 <?php
     require '/home/robert/config/conn.php';
 
-    if(isset($_POST['owner'])){
+    if(isset($_POST['owner_id'])){
         
-        $owner_id = htmlspecialchars($_POST['owner']);
+        $owner_id = htmlspecialchars($_POST['owner_id']);
         
         $sql="select * from owner where owner_id = '" . $owner_id . "';";
         
@@ -36,10 +36,11 @@
                         $pet['exercise'] = $petArray[4];
 
                         $pets[$counter] = $pet;
+                        $output['pets'] = $pets;
                         $counter++;
                     }
                 }
-                print json_encode($pets);
+                print json_encode($output);
             } else {
                 $response['message'] = "User owns no pets";
                 print json_encode($response);
@@ -52,7 +53,7 @@
 
         
     } else {
-        print "must set 'owner'";
+        print "must set 'owner_id'";
     }
 
 ?>

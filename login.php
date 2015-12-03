@@ -28,9 +28,9 @@
     }
     
     if($result->num_rows>0) {
-        $saltedPass = hash("md5", $password . mysqli_query($result, 0, "salt"))
+        $saltedPass = hash("md5", $password . mysqli_query($result, 0, "salt"));
 
-        if($saltPass == mysqli_query($result, 0, "password") {
+        if($saltPass == mysqli_query($result, 0, "password")) {
             $response['status'] = "ok";
             $response['message'] = "Successful account creation!";
         }
