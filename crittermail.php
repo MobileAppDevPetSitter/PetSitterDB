@@ -26,7 +26,7 @@
 
     //echo mysql_error();
     if (!$result) {
-        $response['message'] = "Creation Unsuccessful!";
+        $response['message'] = "Creation Unsuccessful!" . mysql_error();
         die(json_encode($response));
     }
 
@@ -47,7 +47,7 @@
 
     // Check for succes insert
     if (!$result) {
-        $response['errorMessage'] = "Creation Unsuccessful!";
+        $response['errorMessage'] = "Creation Unsuccessful!" . mysql_error();
 
         die(json_encode($response));
     }
@@ -69,4 +69,7 @@
         $response["message"] = "Failed to send to email account provided!";
         echo json_encode($response);
     }
+
+
+    $mysqli->close();
 ?>

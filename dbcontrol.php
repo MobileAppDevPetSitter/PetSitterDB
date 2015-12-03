@@ -10,14 +10,15 @@
     <form action="<?= $_SERVER['PHP_SELF'] ?>" method='post'>
         <label for='email' >Email to delete: </label>
         <input type='text' class="form-control" name='email' id='email' required/> 
-        <input type='submit' class="btn" name='deleteUser' value='Delete' />
+        <input type='submit' class="btn" name='action' value='Delete' />
     </form>
     
     <form action="<?= $_SERVER['PHP_SELF'] ?>" method='post'>
         <label for='email' >Email to show: </label>
         <input type='text' class="form-control" name='email' id='email' required/> 
-        <input type='submit' class="btn" name='selectUser' value='Show' />
+        <input type='submit' class="btn" name='action' value='Show' />
     </form>
+
     
 </body>
     
@@ -29,38 +30,52 @@
         error_reporting(E_ALL);
     
 
-        if(isset($_POST['deleteUser'])){
-            $email = htmlspecialchars($_POST['email']);
-    
-            $sql="DELETE FROM user WHERE email = '" . $email . "';";
-
-            //echo $sql;
-            $result = mysqli_query($mysqli,$sql);
-
-            //echo mysql_error();
-            if (!$result) {
-                $response['message'] = "SQL Failed";
-                die(json_encode($response));
-            }
-        }
-
-        if(isset($_POST['showUser'])){
-            $email = htmlspecialchars($_POST['email']);
+        if(isset($_POST['action'])){
             
-            $sql="SELECT * FROM user WHERE email = '" . $email . "';";
+            $action = isset($_POST['action']) ? $_POST['action'] : null;
+            
+            switch($action){
+                case 'Delete':
+                    $email = htmlspecialchars($_POST['email']);
 
-            //echo $sql;
-            $result = mysqli_query($mysqli,$sql);
+                    $sql="DELETE FROM user WHERE email = '" . $email . "';";
 
-            //echo mysql_error();
-            if (!$result) {
-                $response['message'] = "SQL Failed";
-            } else {
-                $row = mysql_fetch_row($result); // get the single row.
-                echo $row['email'];
+                    //echo $sql;
+                    $result = mysqli_query($mysqli,$sql);
+
+                    //echo mysql_error();
+                    if (!$result) {
+                        $response['message'] = "SQL Failed";
+                        die(json_encode($response));
+                    } 
+                    break;
+                case 'Show':
+                    $email = htmlspecialchars($_POST['email']);
+            
+                    $sql="SELECT * FROM user WHERE email = '" . $email . "';";
+
+                    //echo $sql;
+                    $result = mysqli_query($mysqli,$sql);
+
+                    //echo mysql_error();
+                    if (!$result) {
+                        $response['message'] = "SQL Failed";
+                    } else {
+                        while($row = $result->fetch_array())
+                          {
+                          echo "User ID: " . $row['user_id'] . "<br />Email: " . $row['email'] . "<br />Status: " . $row['status'] . "<br />Verification Code: " . $row['verification_code'];
+                          echo "<br />";
+                          }
+                    }
+                    break;
+                default:
+                    //action not found
+                    break;
             }
-                
+            
+            
         }
+
 
 
     ?>

@@ -42,5 +42,8 @@
         $response['message'] = "Code does not match!";
         echo (json_encode($response));
     }
+           
+           
+    $mysqli->close();
 
 ?>

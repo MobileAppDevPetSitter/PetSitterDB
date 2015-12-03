@@ -23,5 +23,8 @@ if(isset($_POST['email'])){
     } else {
         echo json_encode(['taken'=>'false']);
     }
+    
+    
+    $mysqli->close();
 }
 ?>

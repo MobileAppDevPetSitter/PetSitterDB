@@ -38,4 +38,6 @@
         echo (json_encode($response));
     }
 
+    $mysqli->close();
+
 ?>
