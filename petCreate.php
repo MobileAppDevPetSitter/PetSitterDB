@@ -30,7 +30,7 @@
                 $response['message'] = "Select Failed" . mysqli_error();
                 die(json_encode($response));
             } else {
-                $id     = mysql_fetch_row($result);
+                $id     = mysqli_fetch_row($result);
                 
                 $response['message'] = "Pet created";
                 $response['id']      = $id;
