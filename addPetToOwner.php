@@ -1,6 +1,8 @@
 <?php
     require '/home/robert/config/conn.php';
 
+    $response['status'] = "bad";
+
     if(isset($_POST['pet_id']) && isset($_POST['owner_id'])){
         
         $owner_id       = htmlspecialchars($_POST['pet_id']);                
@@ -18,7 +20,7 @@
             $response['message'] = "Query Failed" . mysqli_error();
             die(json_encode($response));
         } else {
-            
+            $response['status']  = "ok";
             $response['message'] = "Pet Assigned to owner";
             print json_encode($response);
         }
