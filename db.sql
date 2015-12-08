@@ -14,6 +14,7 @@ create table user (
 DROP TABLE IF EXISTS owner;
 create table owner (
     owner_id int not null,
+    user_id int not null,
     pet_id int not null,
     primary key(pet_id, owner_id)
 ) character set 'utf8';
@@ -21,31 +22,34 @@ create table owner (
 DROP TABLE IF EXISTS pet;
 create table pet (
     pet_id int not null auto_increment,
-    name varchar(129) not null,
-    bio varchar(255),
-    bathroom_instructions varchar(255), 
-    exercise_instructions varchar(255),
+    name varchar(128) not null,
+    bio varchar(512),
+    bathroom_instructions varchar(512), 
+    exercise_instructions varchar(512),
+    emergency_contact varchar(512),
+    other varchar(512),
+    veterinarian_info varchar(512),
     primary key(pet_id)
 ) character set 'utf8';
 
 DROP TABLE IF EXISTS pet_sitting;
 create table pet_sitting (
-    pet_sitting_id int not null auto_increment,
+    pet_sitting_id int not null,
     sitter_id int not null,
     pet_id int not null,
     status varchar(10) not null,
     start_date date not null,
     end_date date not null, 
-    primary key(pet_sitting_id)
+    primary key(sitter_id, pet_sitting_id)
 ) character set 'utf8';
 
 DROP TABLE IF EXISTS activity;
 create table activity (
-    activity_id int not null auto_increment,
+    activity_id int not null,
     pet_sitting_id int not null,
     description varchar(255) not null,
     status varchar(10) not null,
     photo_path varchar(127),
     completion_date timestamp not null,
-    primary key(activity_id)
+    primary key(pet_sitting_id, activity_id)
 ) character set 'utf8';
