@@ -17,7 +17,7 @@
 
         //echo $sql;
         $result = mysqli_query($mysqli,$sql);
-        $response["status"] = "bad";
+
         //echo mysql_error();
         if (!$result) {
             $response['message'] = "Query Failed" . mysqli_error();
@@ -31,7 +31,7 @@
                 die(json_encode($response));
             } else {
                 $id     = mysqli_fetch_row($result);
-                $response['status']  = "ok";
+                
                 $response['message'] = "Pet created";
                 $response['id']      = $id;
                 print json_encode($response);
