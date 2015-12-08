@@ -35,7 +35,7 @@
         if($saltedPass == $row['password']) {
             $response['status'] = "ok";
             $response['message'] = "Successful login!";
-            $response['id']      = $row['user_id'];
+            $response['id']      = array($row['user_id']);
         } else {
             $response['message'] = "Password does not match!";
         }
