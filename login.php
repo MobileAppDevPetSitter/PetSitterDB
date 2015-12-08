@@ -35,6 +35,16 @@
         if($saltedPass == $row['password']) {
             $response['status'] = "ok";
             $response['message'] = "Successful login!";
+            $sql = "SELECT LAST_INSERT_ID();";
+            $result = mysqli_query($mysqli,$sql);
+            
+            if(!$result){
+                $response['message'] = "Select Failed" . mysqli_error();
+                die(json_encode($response));
+            } else {
+                $id     = mysqli_fetch_row($result);
+                $response['id']      = $id;
+            }
         } else {
             $response['message'] = "Password does not match!";
         }

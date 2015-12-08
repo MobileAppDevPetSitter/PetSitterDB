@@ -54,6 +54,17 @@
         die(json_encode($response));
     }
 
+    $sql = "SELECT LAST_INSERT_ID();";
+    $result = mysqli_query($mysqli,$sql);
+
+    if(!$result){
+        $response['message'] = "Select Failed" . mysqli_error();
+        die(json_encode($response));
+    } else {
+        $id                  = mysqli_fetch_row($result);
+        $response['id']      = $id;
+    }
+
     // Verification email setup
     $to      = $email;
     $subject = 'Critter Sitter Activation number!';
