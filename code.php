@@ -1,6 +1,6 @@
 <?php
     $response = array("status" => "bad");
-
+	//hey
     if(!isset($_POST['email']) || !isset($_POST['code'])) {
         $response['message'] = "Missing Input!";
         
