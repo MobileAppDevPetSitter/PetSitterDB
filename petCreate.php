@@ -28,9 +28,7 @@
             $response['status']  = "ok";
             $response['message'] = "Pet created";
             print json_encode($response);
-            }    
-        }
-        
+        }    
     } else {
         
         $response['message'] =  "Must set 'name', 'bio', 'bathroom', 'exercise', 'emergency_contact','veterinarian_info','other'";
