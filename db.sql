@@ -29,6 +29,7 @@ create table pet (
     emergency_contact varchar(512),
     other varchar(512),
     veterinarian_info varchar(512),
+    medicine varchar(512),
     primary key(pet_id)
 ) character set 'utf8';
 
