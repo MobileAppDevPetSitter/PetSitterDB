@@ -23,22 +23,12 @@
             $response['message'] = "Query Failed" . mysqli_error();
             die(json_encode($response));
         } else {
-            $sql = "SELECT LAST_INSERT_ID();";
-            $result = mysqli_query($mysqli,$sql);
+            $id = mysqli_insert_id($mysqli);
             
-            if(!$result){
-                $response['message'] = "Select Failed" . mysqli_error();
-                die(json_encode($response));
-            } else {
-                $id     = mysqli_fetch_row($result);
-                
-                $response['message'] = "Pet created";
-                $response['id']      = $id;
-                print json_encode($response);
-            }
-            
-            
-            
+            $response['message'] = "Pet created";
+            $response['id']      = $id;
+            print json_encode($response);
+            } 
         }
         
     } else {
