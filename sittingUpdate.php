@@ -26,7 +26,7 @@
         
     } else {
         
-        $response['message'] = "Must set 'pet_sitting_id','status','bio','bathroom', and 'exercise'";
+        $response['message'] = "Must set 'pet_sitting_id','status'";
         print json_encode($response);
     }
 
