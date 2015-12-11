@@ -22,7 +22,7 @@
         } else {
             $id = mysqli_insert_id($mysqli);
             $response['status'] = 'ok';
-            $response['message'] = "Pet created";
+            $response['message'] = "Activity created";
             $response['id']      = $id;
             print json_encode($response);
         }

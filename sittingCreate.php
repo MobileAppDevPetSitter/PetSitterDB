@@ -1,7 +1,14 @@
 <?php
     require '/home/robert/config/conn.php';
-
-    if(isset($_POST['sitter_id']) && isset($_POST['pet_id']) && isset($_POST['start_date']) && isset($_POST['end_date'])){
+    $response['status'] = "bad";   
+    if(isset($_POST['email']) && isset($_POST['pet_id']) && isset($_POST['start_date']) && isset($_POST['end_date'])){
+        
+        $email = $_POST['email'];
+        
+        $sql = "select user_id from users where email = '" . $email . "';";
+        
+        $result = mysqli_query($mysqli,$sql);
+        
         
         $sitter      = htmlspecialchars($_POST['sitter_id']);                
         $pet         = htmlspecialchars($_POST['pet_id']);
@@ -12,10 +19,8 @@
         $sql="INSERT into pet_sitting (sitter_id,pet_id,status,start_date,end_date) 
               VALUES ('" . $sitter . "','" . $pet . "','open','" . $start . "','" . $end . "');";
 
-        echo $sql;
+//        echo $sql;
         $result = mysqli_query($mysqli,$sql);
-        $response['status'] = "bad";
-        
         //echo mysql_error();
         if (!$result) {
             $response['message'] = "Query Failed" . mysqli_error();
@@ -29,7 +34,7 @@
         
     } else {
         
-        print "Must set 'sitter_id','pet_id','start_date','end_date'";
+        print "Must set 'email','pet_id','start_date','end_date'";
         
     }
 
