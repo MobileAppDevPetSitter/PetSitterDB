@@ -38,7 +38,6 @@
         header('Content-Type: ' . $fileMimeType);
 
         $file = fopen($sourceFilePath, "r") or die("Unable to open file!");
-        $response['']
         print fread($file,filesize($sourceFilePath));
         fclose($file);
     } else {
