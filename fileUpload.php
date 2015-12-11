@@ -13,7 +13,7 @@
 
         if($_POST['type'] != 'pet' && $_POST['type'] != 'activity'){
             $response['message'] = "'type' must be set to 'pet' or 'activity'";
-            die json_encode($response);
+            die(json_encode($response));
         }
 
         $fileFormName = 'file';
