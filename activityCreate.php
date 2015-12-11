@@ -25,7 +25,6 @@
             $response['message'] = "Pet created";
             $response['id']      = $id;
             print json_encode($response);
-            } 
         }
         
     } else {
