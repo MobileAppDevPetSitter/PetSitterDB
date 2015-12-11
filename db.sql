@@ -35,22 +35,22 @@ create table pet (
 
 DROP TABLE IF EXISTS pet_sitting;
 create table pet_sitting (
-    pet_sitting_id int not null,
+    pet_sitting_id int not null auto_increment,
     sitter_id int not null,
     pet_id int not null,
     status varchar(10) not null,
     start_date date not null,
     end_date date not null, 
-    primary key(sitter_id, pet_sitting_id)
+    primary key(pet_sitting_id,sitter_id)
 ) character set 'utf8';
 
 DROP TABLE IF EXISTS activity;
 create table activity (
-    activity_id int not null,
-    pet_sitting_id int not null,
+    activity_id int not null auto_increment,
+    pet_sitting_id int not null UNIQUE,
     description varchar(255) not null,
     status varchar(10) not null,
     photo_path varchar(127),
     completion_date timestamp not null,
-    primary key(pet_sitting_id, activity_id)
+    primary key(activity_id,pet_sitting_id)
 ) character set 'utf8';
