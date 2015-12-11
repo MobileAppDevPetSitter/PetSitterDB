@@ -26,19 +26,19 @@
             $response['message'] = "Query Failed" . mysqli_error();
             die(json_encode($response));
         } else {
-            $response['id']      = mysqli_insert_id($mysqli);
+            $response['id'] = mysqli_insert_id($mysqli);
 
             $owner_sql = "INSERT into  owner (owner_id, pet_id) VALUES ('" . $owner_id . "','" . $response['id']  . "');";
 
             $result = mysqli_query($mysqli,$sql);
             
             if(!$result) {
+                $response['message'] = "Query Failed" . mysqli_error();
+                die(json_encode($response));
+            } else {
                 $response['status']  = "ok";
                 $response['message'] = "Pet created";
-                print json_encode($response);  
-            } else {
-                $response['message'] = "Could not add user as pet owner";
-                print json_encode($response);      
+                print json_encode($response);       
             }
         }    
     } else {    
