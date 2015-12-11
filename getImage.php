@@ -28,10 +28,10 @@
         if ($check !== false) {
             // it is an image and it has a mime-type
             // get the mime type so it can be used to set the Content-type below
-            die(json_encode("couldn't get image size"));
             $fileMimeType = $check['mime'];
         } else {
             // it is not an image, so use default image
+                        die(json_encode("couldn't get image size"));
             $sourceFilePath = $defaultImagePath;
             $fileMimeType = 'image/png';  // I know this since I am providing the  default image
         }
