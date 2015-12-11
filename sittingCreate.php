@@ -23,7 +23,7 @@
 
             // Check for email query
             $sql="INSERT into pet_sitting (sitter_id,pet_id,status,start_date,end_date) 
-                  VALUES ('" . $sitter . "','" . $pet . "','open','" . $start . "','" . $end . "');";
+                  VALUES ('" . $sitter . "','" . $pet . "','pending','" . $start . "','" . $end . "');";
 
     //        echo $sql;
             $result = mysqli_query($mysqli,$sql);

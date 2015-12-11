@@ -17,13 +17,13 @@
             die(json_encode($response));
         } else {
             $response['status'] = 'ok';
-            $response['message'] = "pet deleted";
+            $response['message'] = "activity deleted";
             print json_encode($response);
         }
         
     } else {
         
-        $response['message'] =  "Must set 'pet_id'";
+        $response['message'] =  "Must set 'activity_id'";
         print json_encode($response);
         
     }
