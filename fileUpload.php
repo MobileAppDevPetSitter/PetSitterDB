@@ -26,6 +26,7 @@
         // Don't just copy my code!!!
         if (!file_exists($destinationDirectory)) {
             mkdir($destinationDirectory, 0755, true);
+            echo "hey";
         }
 
         $tempSourceFilePath = $_FILES[$fileFormName]['tmp_name'];
