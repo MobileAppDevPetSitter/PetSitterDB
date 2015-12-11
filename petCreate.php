@@ -1,6 +1,6 @@
 <?php
     require '/home/robert/config/conn.php';
-	$response["status"] = "bad";
+	$response["status"] = array("status" => "bad");
     
     if(isset($_POST['user_id']) && isset($_POST['name']) && isset($_POST['bio']) && isset($_POST['medicine']) && isset($_POST['bathroom']) && isset($_POST['exercise']) && isset($_POST['emergency_contact']) && isset($_POST['veterinarian']) && isset($_POST['other'])){
         
