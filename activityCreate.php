@@ -1,6 +1,6 @@
 <?php
     require '/home/robert/config/conn.php';
-
+    $response['status'] = 'bad';
     if(isset($_POST['pet_sitting_id']) && isset($_POST['description']) && isset($_POST['status']) && isset($_POST['photo_path'])){
         
         $sitting_id       = htmlspecialchars($_POST['pet_sitting_id']);                
@@ -21,7 +21,7 @@
             die(json_encode($response));
         } else {
             $id = mysqli_insert_id($mysqli);
-            
+            $response['status'] = 'ok';
             $response['message'] = "Pet created";
             $response['id']      = $id;
             print json_encode($response);
@@ -30,7 +30,7 @@
         
     } else {
         
-        $response['message'] =  "Must set 'name', 'bio', 'bathroom', 'exercise', 'emergency_contact','veterinarian_info','other'";
+        $response['message'] =  "Must set 'pet_sitting_id','description','status','photo_path'";
         print json_encode($response);
         
     }
