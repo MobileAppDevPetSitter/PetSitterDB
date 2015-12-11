@@ -1,6 +1,8 @@
 <?php
     require '/home/robert/config/conn.php';
 
+    $response = array("status" => "bad");
+    
     if(isset($_POST['pet_id'])){
         
         $pet_id = htmlspecialchars($_POST['pet_id']);
@@ -16,14 +18,12 @@
             $response['message'] = "Query Failed" . mysql_error();
             die(json_encode($response));
         } else {
-            
+            $response['status'] = "ok";
+
             $pet = mysqli_fetch_row($result);
             
             $response['pet_id']   = $pet[0];
             $response['name']     = $pet[1];
-            $response['bio']      = $pet[2];
-            $response['bathroom'] = $pet[3];
-            $response['exercise'] = $pet[4];
             
             print json_encode($response);
         }
