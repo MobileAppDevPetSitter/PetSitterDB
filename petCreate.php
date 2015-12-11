@@ -31,7 +31,7 @@
 
             $owner_sql = "INSERT into  owner (owner_id, pet_id) VALUES ('" . $owner_id . "','" . $response['id']  . "');";
 
-            $result = mysqli_query($mysqli,$sql);
+            $result = mysqli_query($mysqli,$owner_sql);
             
             if(!$result) {
                 $response['message'] = "Query Failed" . mysqli_error();
