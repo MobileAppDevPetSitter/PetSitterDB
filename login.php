@@ -30,12 +30,11 @@
     if($result->num_rows>0) {
         $row = $result->fetch_assoc();
         $saltedPass = hash("md5", $password.$row['salt']);
-
         
         if($saltedPass == $row['password']) {
             $response['status'] = "ok";
             $response['message'] = "Successful login!";
-            $response['id']      = array($row['user_id']);
+            $response['id']      = $row['user_id'];
         } else {
             $response['message'] = "Password does not match!";
         }

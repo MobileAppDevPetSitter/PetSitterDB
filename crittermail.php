@@ -53,9 +53,8 @@
 
         die(json_encode($response));
     }
-
-    $sql = "SELECT LAST_INSERT_ID();";
-    $result = mysqli_query($mysqli,$sql);
+    
+    $response["id"] = mysqli_insert_id($mysqli);
 
     if(!$result){
         $response['message'] = "Select Failed" . mysqli_error();
