@@ -26,7 +26,8 @@
         // Don't just copy my code!!!
 //        echo $destinationDirectory;
 //        echo file_exists($destinationDirectory);
-        $response['directory'] = $destinationDirectory;
+        $response['currentUser'] = get_current_user();
+	 $response['directory'] = $destinationDirectory;
         $response['fileExists'] = file_exists($destinationDirectory);
         if (!file_exists($destinationDirectory)) {
             mkdir($destinationDirectory, 0755, true);
