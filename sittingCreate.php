@@ -32,7 +32,7 @@
                 $response['message'] = "Query Failed" . mysqli_error();
                 die(json_encode($response));
             } else {
-
+                $response["id"] = mysqli_insert_id($mysqli);
                 $response['message'] = "Sitting instance created";
                 $response['status']  = "ok";
                 print json_encode($response);
