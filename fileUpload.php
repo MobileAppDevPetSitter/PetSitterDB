@@ -24,6 +24,8 @@
         // are setting the rights that are safe and meet your purpose.
         // What you can do depends on how your web server is set up.
         // Don't just copy my code!!!
+        echo $destinationDirectory;
+        echo file_exists($destinationDirectory);
         if (!file_exists($destinationDirectory)) {
             mkdir($destinationDirectory, 0755, true);
             echo "hey";
