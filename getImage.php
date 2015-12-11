@@ -16,8 +16,9 @@
         // an image to send if requested one isn't available
         $defaultImagePath = 'imagenotfound.png';  
 
-        $fileName = $_POST['image'];
-        $sourceFilePath = $sourceDirectory . '/' . $fileName;
+        $fileName = htmlspecialchars($_POST['id']);
+        $dir = htmlspecialchars($_POST['type']);
+        $sourceFilePath = $sourceDirectory . '/' . $dir . '/' . $fileName;
 
         // If the requested file doesn't exist, use the default image
         if (!file_exists($sourceFilePath)) {
