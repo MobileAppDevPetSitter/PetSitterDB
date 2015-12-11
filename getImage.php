@@ -38,9 +38,9 @@
         header('Content-Type: ' . $fileMimeType);
 
         $file = fopen($sourceFilePath, "r") or die("Unable to open file!");
-        $response['info'] = fread($file,filesize($sourceFilePath));
+        $response['']
+        print fread($file,filesize($sourceFilePath));
         fclose($file);
-        print json_encode($response);
     } else {
         $response['message'] = "must set 'type', and 'id'";
     }
