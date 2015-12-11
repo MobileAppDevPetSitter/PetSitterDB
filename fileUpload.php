@@ -17,7 +17,7 @@
         }
 
         $fileFormName = 'file';
-        $destinationDirectory = $_POST['type'];
+        $destinationDirectory = "~/coolsite/test/" . $_POST['type'];
 
         // The rights you set when you create the directory determine
         // who can write to it and who can read from it.  Be sure you 
