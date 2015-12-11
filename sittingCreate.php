@@ -9,7 +9,11 @@
         
         $result = mysqli_query($mysqli,$sql);
         
-        if ($result) {
+        if (!$result) {
+            $response['message'] = "Email not found" . mysqli_error();
+            die(json_encode($response));
+            
+        } else {
             
             $query       = mysqli_fetch_assoc($result);
             echo $query;
@@ -34,12 +38,6 @@
                 $response['status']  = "ok";
                 print json_encode($response);
             }
-        
-            
-            
-        } else {
-            $response['message'] = "Email not found" . mysqli_error();
-            die(json_encode($response));
         }
         
         
