@@ -56,14 +56,6 @@
     
     $response["id"] = mysqli_insert_id($mysqli);
 
-    if(!$result){
-        $response['message'] = "Select Failed" . mysqli_error();
-        die(json_encode($response));
-    } else {
-        $id                  = mysqli_fetch_row($result);
-        $response['id']      = $id;
-    }
-
     // Verification email setup
     $to      = $email;
     $subject = 'Critter Sitter Activation number!';
