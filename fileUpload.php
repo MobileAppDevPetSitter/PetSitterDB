@@ -65,7 +65,13 @@ error_reporting(E_ALL);
         $baseURL = $protocol . $_SERVER['SERVER_NAME'] . '/coolsite/test';
         //dirname($_SERVER['PHP_SELF'])
         $response['baseUrl'] = $baseURL;
-        if (move_uploaded_file($tempSourceFilePath, $destinationPath)) {
+if (is_dir($destinationPath) && is_writable($destinationPath)) {
+    $response['err'] = "works!";
+} else {
+    $response['err'] =  'Upload directory is not writable, or does not exist.';
+}        
+
+if (move_uploaded_file($tempSourceFilePath, $destinationPath)) {
             print json_encode([
                 'status' => 'OK',
                 'message' => 'Uploaded ' . $fileName,
