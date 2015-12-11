@@ -29,7 +29,7 @@
         } else {
             // is not a real image - send error and exit! - do not copy file
             $response['message'] = "Not an image!";
-            die json_encode($response);
+            die(json_encode($response));
         }
 
         if (empty($_SERVER['HTTPS']) || $_SERVER['HTTPS'] === 'off') {
@@ -42,7 +42,7 @@
         if (move_uploaded_file($tempSourceFilePath, $destinationPath)) {
             $response['status'] = 'ok';
             $response['message'] = 'Uploaded ' . $fileName . $fileExtension;
-            $response['destination'] = $destinationDirectory . '/' . $fileName
+            $response['destination'] = $destinationDirectory . '/' . $fileName;
             print json_encode($response);
         } else {
             $response['message'] = 'An error occurred uploading ' . $fileName;
