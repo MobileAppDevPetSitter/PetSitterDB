@@ -1,19 +1,16 @@
 <?php
     require '/home/robert/config/conn.php';
 
-    if(isset($_POST['name']) && isset($_POST['bio']) && isset($_POST['bathroom']) && isset($_POST['exercise']) && isset($_POST['emergency_contact']) && isset($_POST['veterinarian_info']) && isset($_POST['other'])){
+    if(isset($_POST['pet_sitting_id']) && isset($_POST['description']) && isset($_POST['status']) && isset($_POST['photo_path'])){
         
-        $pet_name       = htmlspecialchars($_POST['name']);                
-        $pet_bio        = htmlspecialchars($_POST['bio']);
-        $pet_bathroom   = htmlspecialchars($_POST['bathroom']);
-        $pet_exercise   = htmlspecialchars($_POST['exercise']);
-        $pet_veterinarian_info = htmlspecialchars($_POST['veterinarian_info']);
-        $pet_emergency  = htmlspecialchars($_POST['emergency_contact']);
-        $pet_other      = htmlspecialchars($_POST['other']);
+        $sitting_id       = htmlspecialchars($_POST['pet_sitting_id']);                
+        $description        = htmlspecialchars($_POST['description']);
+        $status   = htmlspecialchars($_POST['status']);
+        $photo   = htmlspecialchars($_POST['photo_path']);
 
         // Check for email query
-        $sql="INSERT into pet (name,bio,bathroom_instructions,exercise_instructions,veterinarian_info,emergency_contact,other) 
-              VALUES ('" . $pet_name . "','" . $pet_bio . "','" . $pet_bathroom . "','" . $pet_exercise . "','" . $pet_veterinarian_info . "','" . $pet_emergency . "','" . $pet_other . "');";
+        $sql="INSERT into activity (pet_sitting_id,description,status,photo_path) 
+              VALUES ('" . $sitting_id . "','" . $description . "','" . $status . "','" . $photo . "');";
 
         //echo $sql;
         $result = mysqli_query($mysqli,$sql);
