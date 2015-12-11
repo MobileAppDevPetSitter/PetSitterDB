@@ -32,7 +32,7 @@
         } else {
             // it is not an image, so use default image
             $sourceFilePath = $defaultImagePath;
-            $fileMimeType = 'image/jpg';  // I know this since I am providing the  default image
+            $fileMimeType = 'image/png';  // I know this since I am providing the  default image
         }
 
         header('Content-Type: ' . $fileMimeType);
