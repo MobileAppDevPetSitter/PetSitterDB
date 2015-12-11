@@ -5,7 +5,7 @@
         
         $email = $_POST['email'];
         
-        $sql = "select user_id from users where email = '" . $email . "';";
+        $sql = "select user_id from user where email = '" . $email . "';";
         
         $result = mysqli_query($mysqli,$sql);
         
@@ -17,7 +17,7 @@
             
             $query       = mysqli_fetch_assoc($result);
             echo $query;
-            $sitter      = htmlspecialchars($query['id']);                
+            $sitter      = htmlspecialchars($query['user_id']);                
             $pet         = htmlspecialchars($_POST['pet_id']);
             $start       = htmlspecialchars($_POST['start_date']);
             $end         = htmlspecialchars($_POST['end_date']);
