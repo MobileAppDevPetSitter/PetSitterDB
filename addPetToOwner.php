@@ -1,7 +1,7 @@
 <?php
     require '/home/robert/config/conn.php';
 
-    $response['status'] = "bad";
+    $response['status'] = array("status" => "bad");
 
     if(isset($_POST['pet_id']) && isset($_POST['owner_id'])){
         
