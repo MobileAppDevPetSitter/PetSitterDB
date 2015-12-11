@@ -16,7 +16,6 @@
         } else {
             
             $query       = mysqli_fetch_assoc($result);
-            echo $query;
             $sitter      = htmlspecialchars($query['user_id']);                
             $pet         = htmlspecialchars($_POST['pet_id']);
             $start       = htmlspecialchars($_POST['start_date']);
