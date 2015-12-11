@@ -58,7 +58,8 @@
         } else {
             $protocol = 'https://';
         }
-        $baseURL = $protocol . $_SERVER['SERVER_NAME'] . dirname($_SERVER['PHP_SELF']);
+        $baseURL = $protocol . $_SERVER['SERVER_NAME'] . '/coolsite/test';
+        //dirname($_SERVER['PHP_SELF'])
         $response['baseUrl'] = $baseURL;
         if (move_uploaded_file($tempSourceFilePath, $destinationPath)) {
             print json_encode([
