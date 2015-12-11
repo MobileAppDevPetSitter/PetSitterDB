@@ -1,5 +1,9 @@
 <?php
     $response['status'] = 'bad';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
     if(isset($_POST['type']) && isset($_POST['id'])){
         header('Content-Type: application/json');
         // response from this script is going to be JSON
