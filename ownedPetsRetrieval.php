@@ -1,6 +1,6 @@
 <?php
     require '/home/robert/config/conn.php';
-
+    $response['status'] = 'bad';
     if(isset($_POST['owner_id'])){
         
         $owner_id = htmlspecialchars($_POST['owner_id']);
@@ -34,13 +34,13 @@
                         $pet['bio']      = $petArray[2];
                         $pet['bathroom'] = $petArray[3];
                         $pet['exercise'] = $petArray[4];
-
+                        $response['status'] = 'ok';
                         $pets[$counter] = $pet;
-                        $output['pets'] = $pets;
+                        $response['pets'] = $pets;
                         $counter++;
                     }
                 }
-                print json_encode($output);
+                print json_encode($response);
             } else {
                 $response['message'] = "User owns no pets";
                 print json_encode($response);
