@@ -8,7 +8,7 @@
         // Check for email query
         $sql="Delete from pet_sitting where pet_sitting_id = '" . $sitting_id . "';";
 
-        echo $sql;
+//        echo $sql;
         $result = mysqli_query($mysqli,$sql);
 
         //echo mysql_error();
