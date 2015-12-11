@@ -46,6 +46,7 @@
 
     // Parse result
     $result = mysqli_query($mysqli,$sql);
+    $response["id"] = mysqli_insert_id($mysqli);
 
     // Check for succes insert
     if (!$result) {
@@ -53,8 +54,6 @@
 
         die(json_encode($response));
     }
-    
-    $response["id"] = mysqli_insert_id($mysqli);
 
     // Verification email setup
     $to      = $email;
