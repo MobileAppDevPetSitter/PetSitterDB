@@ -25,7 +25,7 @@
             $response['sitter_id']   = $pet['sitter_id'];
             $response['pet_id']      = $pet['pet_id'];
             $response['name']        = $pet['name'];
-            $response['status']      = $pet['status'];
+            $response['currentStatus']      = $pet['status'];
             $response['start']       = $pet['start_date'];
             $response['end']         = $pet['end_date'];
             
