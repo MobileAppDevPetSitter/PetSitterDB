@@ -6,7 +6,7 @@
         
         $owner_id = htmlspecialchars($_POST['owner_id']);
         
-        $sql="select pet_id from pet_sitting where sitter_id = '" . $owner_id."';";
+        $sql="select * from pet_sitting where sitter_id = '" . $owner_id."';";
         
         $result = mysqli_query($mysqli,$sql);
         if (!$result) {
@@ -20,7 +20,7 @@
                     $pet['sitting_id'] = $row["sitting_id"];
                     $pet['end_date'] = $row["end_date"];
                     $pet['start_date'] = $row["start_date"];
-                    
+
                     $sql="select * from pet where pet_id = '" . $row["pet_id"] . "';";
                     
                     $petResult = mysqli_query($mysqli,$sql);
