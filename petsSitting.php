@@ -17,7 +17,7 @@
             if($result->num_rows >0){
                 $counter = 0;
                 while($row = mysqli_fetch_assoc($result)){
-                    $pet['sitting_id'] = $row["sitting_id"];
+                    $pet['pet_sitting_id'] = $row["pet_sitting_id"];
                     $pet['end_date'] = $row["end_date"];
                     $pet['start_date'] = $row["start_date"];
 
