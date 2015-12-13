@@ -2,7 +2,7 @@
     require '/home/robert/config/conn.php';
     $response['status'] = 'bad';
 
-    if(isset($_POST['owner_id'])){
+    if(isset($_POST['owner_id'])) {
         
         $owner_id = htmlspecialchars($_POST['owner_id']);
         
@@ -53,6 +53,7 @@
     $mysqli->close();
         
     } else {
-        print "must set 'owner_id'";
+        $response['message'] = "Must set owner id";
+        print json_encode($response);
     }
 ?>
