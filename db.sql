@@ -48,6 +48,7 @@ DROP TABLE IF EXISTS activity;
 create table activity (
     activity_id int not null auto_increment,
     pet_sitting_id int not null UNIQUE,
+    title varchar(128) not null,
     description varchar(255) not null,
     status varchar(10) not null,
     photo_path varchar(127),
