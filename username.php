@@ -1,4 +1,5 @@
 <?php
+$response['status'] = 'bad';
 if(isset($_POST['email'])){
     require '/home/robert/config/conn.php';
     ini_set('display_errors', 1);
@@ -19,12 +20,17 @@ if(isset($_POST['email'])){
     }
     
     if($result->num_rows!=0){
-        echo json_encode(['taken'=>'true']); 
+        $response['message'] = 'taken';
+        echo json_encode($response); 
     } else {
-        echo json_encode(['taken'=>'false']);
+        $response['status'] = 'ok';
+        $response['message'] = 'not taken';
+        echo json_encode($response);
     }
     
     
     $mysqli->close();
+} else {
+    print json_encode($response);
 }
 ?>

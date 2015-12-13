@@ -1,4 +1,5 @@
 <?php
+    $response['status'] = 'bad';
     if(isset($_POST['type']) && isset($_POST['id'])){
         
         // This script returns an image that is requested using the photo
