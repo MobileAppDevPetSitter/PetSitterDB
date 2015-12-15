@@ -1,15 +1,16 @@
 <?php
     require '/home/robert/config/conn.php';
     $response['status'] = 'bad';
-    if(isset($_POST['pet_sitting_id']) && isset($_POST['description']) && isset($_POST['status']) ){
+    if(isset($_POST['pet_sitting_id']) && isset($_POST['title']) && isset($_POST['description']) && isset($_POST['status']) ){
         
         $sitting_id       = htmlspecialchars($_POST['pet_sitting_id']);                
         $description        = htmlspecialchars($_POST['description']);
         $status   = htmlspecialchars($_POST['status']);
+        $title = htmlspecialchars($_POST['title']);
 
         // Check for email query
-        $sql="INSERT into activity (pet_sitting_id,description,status) 
-              VALUES ('" . $sitting_id . "','" . $description . "','" . $status . "');";
+        $sql="INSERT into activity (title,pet_sitting_id,description,status) 
+              VALUES ('". $title . "','" . $sitting_id . "','" . $description . "','" . $status . "');";
 
         //echo $sql;
         $result = mysqli_query($mysqli,$sql);
