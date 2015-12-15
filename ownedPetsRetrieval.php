@@ -83,16 +83,16 @@
                 
                 $currentDate = date("Y-m-d H:i:s");
 
-                if($response['start'] < $currentDate && $response['end'] > $currentDate ) {
-                    $response['currentStatus'] = 'current';
-                } else if ($currentDate < $response['start']){
-                    $response['currentStatus'] = 'upcoming';
-                } else if ($currentDate > $response['end']){
-                    $response['currentStatus'] = 'expired';
+                if($sittin['start'] < $currentDate && $sittin['end'] > $currentDate ) {
+                    $sittin['currentStatus'] = 'current';
+                } else if ($currentDate < $sittin['start']){
+                    $sittin['currentStatus'] = 'upcoming';
+                } else if ($currentDate > $sittin['end']){
+                    $sittin['currentStatus'] = 'expired';
                 }
 
                 $sql="UPDATE pet_sitting
-                  SET status = '"     . $response['currentStatus'] . 
+                  SET status = '"     . $sittin['currentStatus'] . 
                   "' WHERE pet_sitting_id = '" . $pet['pet_sitting_id'] . "';";
 
                 if (!$result) {
