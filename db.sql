@@ -16,7 +16,7 @@ create table owner (
     owner_id int not null,
     user_id int not null,
     pet_id int not null,
-    primary key(pet_id, owner_id)
+    primary key(pet_id)
 ) character set 'utf8';
 
 DROP TABLE IF EXISTS pet;
@@ -54,5 +54,5 @@ create table activity (
     status varchar(10) not null,
     photo_path varchar(127),
     completion_date timestamp not null,
-    primary key(activity_id,pet_sitting_id)
+    primary key(activity_id)
 ) character set 'utf8';
