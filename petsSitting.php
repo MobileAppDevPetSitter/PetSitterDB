@@ -20,6 +20,7 @@
                     $pet['pet_sitting_id'] = $row["pet_sitting_id"];
                     $pet['end_date'] = $row["end_date"];
                     $pet['start_date'] = $row["start_date"];
+                    $pet['currentStatus'] = $row["status"];
 
                     $sql = "select * from pet where pet_id = '" . $row["pet_id"] . "';";
                     

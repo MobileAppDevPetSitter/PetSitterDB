@@ -19,10 +19,10 @@
             if($result->num_rows >0){
                 $counter = 0;
                 while($activity = mysqli_fetch_assoc($result)){
-                        $response['status'] = 'ok';
-                        $activities[$counter] = $activity;
-                        $response['activities'] = $activities;
-                        $counter++;
+                    $response['status'] = 'ok';
+                    $activities[$counter] = $activity;
+                    $response['activities'] = $activities;
+                    $counter++;
                 }
             } else {
                 $response['message'] = "Instance has no activities";
