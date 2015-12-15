@@ -28,10 +28,21 @@
     }
     
     if($result->num_rows>0){
-        $response['status'] = "ok";
         $response['message'] = "Successful account creation!";
+        
+        $updateSql = "Update pet set status = 'verified' where email='" . $email . "';";
+        
+        $result = mysqli_query($mysqli,$updateSql);
+    
+        //echo mysql_error();
+        if (!$result) {
+            $response['message'] = "Update Failed";
+            die(json_encode($response));
+        } else {  
+            $response['status'] = "ok";
+            echo json_encode($response);
+        }
 
-        echo json_encode($response);
     } else {
         
         $response['message'] = "Code does not match!";

@@ -30,6 +30,7 @@ create table pet (
     other varchar(512),
     veterinarian_info varchar(512),
     medicine varchar(512),
+    food varchar(512),
     primary key(pet_id)
 ) character set 'utf8';
 

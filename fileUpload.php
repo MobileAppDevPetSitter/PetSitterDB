@@ -3,8 +3,9 @@
     if(isset($_POST['type']) && isset($_POST['id'])){
         header('Content-Type: application/json');
         // response from this script is going to be JSON
+        $type = htmlspecialchars($_POST['type']);
 
-        if($_POST['type'] != 'pet' && $_POST['type'] != 'activity'){
+        if($type != 'pet' && $type != 'activity'){
             $response['message'] = "'type' must be set to 'pet' or 'activity'";
             die(json_encode($response));
         }
@@ -17,7 +18,7 @@
         }
 
         $tempSourceFilePath = $_FILES[$fileFormName]['tmp_name'];
-        $fileName = $_POST['id'];
+        $fileName = htmlspecialchars($_POST['id']);
         $fileExtension = pathinfo($fileName, PATHINFO_EXTENSION);
         $destinationPath = $destinationDirectory . '/' . $fileName;
 
