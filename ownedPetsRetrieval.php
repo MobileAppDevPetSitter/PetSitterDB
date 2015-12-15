@@ -80,13 +80,13 @@
                 $sittin['end']         = $pet['end_date'];
                 $sittin['pet_sitting_id'] = $pet['pet_sitting_id'];
                 
-                $currentDate = date("Y-m-d H:i:s");
+                $currentDate = date("YYYY-MM-DD");
 
-                if($sittin['start'] < $currentDate && $sittin['end'] > $currentDate ) {
+                if($sittin != 'pending' && $sittin['start'] < $currentDate && $sittin['end'] > $currentDate ) {
                     $sittin['currentStatus'] = 'current';
-                } else if ($currentDate < $sittin['start']){
+                } else if ($sittin != 'pending' && $currentDate < $sittin['start']){
                     $sittin['currentStatus'] = 'upcoming';
-                } else if ($currentDate > $sittin['end']){
+                } else if ($sittin != 'pending' && $currentDate > $sittin['end']){
                     $sittin['currentStatus'] = 'expired';
                 }
                 
