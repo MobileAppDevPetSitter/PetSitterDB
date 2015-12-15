@@ -53,7 +53,7 @@ create table activity (
     title varchar(128) not null,
     description varchar(255) not null,
     status varchar(10) not null,
-    completion_date date not null,
+    completion_date date not null DEFAULT '2015-12-15',
     hasImage TINYINT(1) DEFAULT 0,
     primary key(activity_id)
 ) character set 'utf8';
