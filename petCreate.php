@@ -44,7 +44,7 @@
             }
         }    
     } else {    
-        $response['message'] =  "Must set 'name', 'food', 'bio', 'bathroom', 'exercise', 'emergency_contact','veterinarian_info','other'";
+        $response['message'] =  "Must set 'name', 'food', 'bio', 'bathroom', 'exercise', 'emergency_contact','veterinarian','other'";
         print json_encode($response);
     }
 
