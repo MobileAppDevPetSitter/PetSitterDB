@@ -52,7 +52,6 @@ create table activity (
     title varchar(128) not null,
     description varchar(255) not null,
     status varchar(10) not null,
-    photo_path varchar(127),
     completion_date timestamp not null,
     primary key(activity_id)
 ) character set 'utf8';
