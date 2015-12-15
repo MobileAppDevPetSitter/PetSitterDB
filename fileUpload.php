@@ -44,13 +44,13 @@
             $response['status'] = 'ok';
             $response['message'] = 'Uploaded ' . $fileName . $fileExtension;
             $response['destination'] = $destinationDirectory . '/' . $fileName;
-            print $response['status'];
+            echo $response['status'];
         } else {
             $response['message'] = 'An error occurred uploading ' . $fileName;
-            print $response['status'];
+            echo $response['status'];
         }
     } else {
         $response['message'] = "must set 'type','id'";
-        print $response['status'];
+        echo $response['status'];
     }
 ?>
