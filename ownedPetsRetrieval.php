@@ -68,7 +68,7 @@
             if (!$result) {
                 $response['message'] = "Query Failed" . mysql_error();
                 die(json_encode($response));
-            } else if ($result->num_rows() > 0) {
+            } else if ($result->num_rows > 0) {
                 $response["status"] = "ok";
 
                 $pet = mysqli_fetch_assoc($result);
