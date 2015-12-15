@@ -7,9 +7,9 @@
         $status                 = htmlspecialchars($_POST['status']);
 
         // Check for email query
-        $sql="UPDATE pet_sitting
+        $sql="UPDATE activity
               SET status = '"     . $status . 
-              "' WHERE pet_sitting_id = '" . $activity_id . "';";
+              "' WHERE activity_id = '" . $activity_id . "';";
 
 //        echo $sql;
         $result = mysqli_query($mysqli,$sql);

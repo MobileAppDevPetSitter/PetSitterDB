@@ -29,7 +29,28 @@
             $response['start']       = $pet['start_date'];
             $response['end']         = $pet['end_date'];
             
-            if()
+            $currentDate = date("Y-m-d H:i:s");
+            
+            if($response['start'] < $currentDate && $response['end'] > $currentDate ) {
+                $newStatus = 'current';
+            } else if ($currentDate < $response['start']){
+                $newStatus = 'upcoming';
+            } else if ($currentDate > $response['end']){
+                $newStatus = 'expired';
+            }
+            
+            $sql="UPDATE pet_sitting
+              SET status = '"     . $newStatus . 
+              "' WHERE pet_sitting_id = '" . $sitting_id . "';";
+            
+            if (!$result) {
+                $response['message'] = "Status update failed" . mysqli_error();
+                die(json_encode($response));
+            } else {
+                $response['status']  = 'ok';
+                $response['message'] = "Status updated";
+                print json_encode($response);
+            }
             
             
             print json_encode($response);
