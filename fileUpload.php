@@ -54,8 +54,6 @@
                 die(json_encode($response));
             } else {
                 $response['status']  = 'ok';
-                $response['message'] = "Activity updated";
-                print json_encode($response);
             }
             
             echo $response['status'];
