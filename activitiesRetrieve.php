@@ -19,7 +19,7 @@
             if($result->num_rows >0){
                 $counter = 0;
                 while($activity = mysqli_fetch_assoc($result)){
-                        $activity['completion_date'] = data("YYYY-MM-DD",$activity['completion_date']);
+                        $activity['completion_date'] = date("YYYY-MM-DD", $activity['completion_date']);
                         $response['status'] = 'ok';
                         $activities[$counter] = $activity;
                         $response['activities'] = $activities;
