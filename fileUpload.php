@@ -1,7 +1,7 @@
 <?php
     $response['status'] = 'bad';
     if(isset($_POST['type']) && isset($_POST['id'])){
-        header('Content-Type: application/json');
+        header('Content-Type: text/plain');
         // response from this script is going to be JSON
         $type = htmlspecialchars($_POST['type']);
 
