@@ -59,7 +59,7 @@
         
         $counter = 0;
         foreach($coolPets as $coolPetId){
-           $sql="select * from pet_sitting where pet_id =" . $coolPetId . "';";
+           $sql="select * from pet_sitting where pet_id ='" . $coolPetId . "';";
 
     //        echo $sql;
             $result = mysqli_query($mysqli,$sql);
