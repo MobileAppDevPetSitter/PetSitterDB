@@ -21,7 +21,7 @@
               "', bathroom_instructions = '" . $pet_bathroom .
               "', exercise_instructions = '" . $pet_exercise . 
               "', medicine = '" . $pet_medicine .
-              "', veterinarian_info = '" . $veterinarian .
+              "', veterinarian_info = '" . $pet_veterinarian_info .
               "', emergency_contact = '" . $pet_emergency .
               "', other = '" . $pet_other .
               "', food = '" . $food .
