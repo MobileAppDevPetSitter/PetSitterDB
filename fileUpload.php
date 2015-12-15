@@ -41,11 +41,22 @@
         $baseURL = $protocol . $_SERVER['SERVER_NAME'] . '/coolsite/test';
         
         if (move_uploaded_file($tempSourceFilePath, $destinationPath)) {
-            $response['status'] = 'ok';
             $response['message'] = 'Uploaded ' . $fileName . $fileExtension;
             $response['destination'] = $destinationDirectory . '/' . $fileName;
             
             $sql = "Update " . $type . " set hasImage = 1 where " . $type . "_id = '" . $fileName ."';";
+            
+            $result = mysqli_query($mysqli,$sql);
+
+            //echo mysql_error();
+            if (!$result) {
+                $response['message'] = "Query Failed" . mysqli_error();
+                die(json_encode($response));
+            } else {
+                $response['status']  = 'ok';
+                $response['message'] = "Activity updated";
+                print json_encode($response);
+            }
             
             echo $response['status'];
         } else {
