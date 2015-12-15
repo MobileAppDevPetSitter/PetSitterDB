@@ -48,7 +48,6 @@
                         $counter++;
                     }
                 }
-                print json_encode($response);
             } else {
                 $response['message'] = "User owns no pets";
             }
