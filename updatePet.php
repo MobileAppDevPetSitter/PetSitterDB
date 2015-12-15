@@ -1,6 +1,6 @@
 <?php
     require '/home/robert/config/conn.php';
-    $response['status'] = 'bad';
+
     if(isset($_POST['pet_id']) && isset($_POST['name']) && isset($_POST['bio']) && isset($_POST['bathroom']) && isset($_POST['exercise'])){
                             
         $pet_id         = htmlspecialchars($_POST['pet_id']);
@@ -27,7 +27,6 @@
         } else {
             
             $response['message'] = "Pet updated";
-            $response['status'] = 'ok';
             print json_encode($response);
         }
         

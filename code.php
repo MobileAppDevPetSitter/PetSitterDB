@@ -30,7 +30,7 @@
     if($result->num_rows>0){
         $response['message'] = "Successful account creation!";
         
-        $updateSql = "Update pet set status = 'verified' where email='" . $email . "';";
+        $updateSql = "Update user set status = 'verified' where email='" . $email . "';";
         
         $result = mysqli_query($mysqli,$updateSql);
     
