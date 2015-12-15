@@ -73,12 +73,14 @@
 
                 $pet = mysqli_fetch_assoc($result);
 
-                $response['sitter_id']   = $pet['sitter_id'];
-                $response['pet_id']      = $pet['pet_id'];
-                $response['currentStatus']      = $pet['status'];
-                $response['start']       = $pet['start_date'];
-                $response['end']         = $pet['end_date'];
-
+                $sittin['sitter_id']   = $pet['sitter_id'];
+                $sittin['pet_id']      = $pet['pet_id'];
+                $sittin['currentStatus']      = $pet['status'];
+                $sittin['start']       = $pet['start_date'];
+                $sittin['end']         = $pet['end_date'];
+                $sittings[$counter]    = $sittin;
+                $response['mine_sitting'] = $sittings;
+                
                 $currentDate = date("Y-m-d H:i:s");
 
                 if($response['start'] < $currentDate && $response['end'] > $currentDate ) {
