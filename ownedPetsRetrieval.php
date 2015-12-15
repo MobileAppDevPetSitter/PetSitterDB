@@ -78,7 +78,6 @@
                 $sittin['currentStatus']      = $pet['status'];
                 $sittin['start']       = $pet['start_date'];
                 $sittin['end']         = $pet['end_date'];
-                $response['mine_sitting'] = $sittings;
                 
                 $currentDate = date("Y-m-d H:i:s");
 
@@ -91,6 +90,8 @@
                 }
                 
                 $sittings[$counter]    = $sittin;
+                
+                $response['mine_sitting'] = $sittings;
 
                 $sql="UPDATE pet_sitting
                   SET status = '"     . $sittin['currentStatus'] . 
