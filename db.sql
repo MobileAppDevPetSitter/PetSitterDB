@@ -31,6 +31,7 @@ create table pet (
     veterinarian_info varchar(512),
     medicine varchar(512),
     food varchar(512),
+    hasImage TINYINT(1),
     primary key(pet_id)
 ) character set 'utf8';
 
@@ -53,5 +54,6 @@ create table activity (
     description varchar(255) not null,
     status varchar(10) not null,
     completion_date timestamp not null,
+    hasImage TINYINT(1),
     primary key(activity_id)
 ) character set 'utf8';
