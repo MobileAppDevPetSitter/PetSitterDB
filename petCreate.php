@@ -17,7 +17,7 @@
 
         // Check for email query
         $sql="INSERT into pet (name,bio,food,bathroom_instructions,medicine,exercise_instructions,veterinarian_info,emergency_contact,other) 
-              VALUES ('" . $pet_name . "','" . $pet_bio . "','" . $food "','" . $pet_bathroom . "','" . $pet_medicine  . "','" . $pet_exercise . "','" . $pet_veterinarian_info . "','" . $pet_emergency . "','" . $pet_other . "');";
+              VALUES ('" . $pet_name . "','" . $pet_bio . "','" . $food . "','" . $pet_bathroom . "','" . $pet_medicine  . "','" . $pet_exercise . "','" . $pet_veterinarian_info . "','" . $pet_emergency . "','" . $pet_other . "');";
 
         //echo $sql;
         $result = mysqli_query($mysqli,$sql);
