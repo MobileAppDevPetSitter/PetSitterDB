@@ -1,4 +1,5 @@
 <?php
+    require '/home/robert/config/conn.php';
     $response['status'] = 'bad';
     if(isset($_POST['type']) && isset($_POST['id'])){
         header('Content-Type: text/plain');
