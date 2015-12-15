@@ -19,8 +19,6 @@
             if($result->num_rows >0){
                 $counter = 0;
                 while($activity = mysqli_fetch_assoc($result)){
-                    $date = date_create($activity["completion_time"]);
-                    $activity["completion_time"] = date_format($date, "Y/m/d")
                     $response['status'] = 'ok';
                     $activities[$counter] = $activity;
                     $response['activities'] = $activities;
