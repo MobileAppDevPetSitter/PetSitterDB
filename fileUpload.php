@@ -44,7 +44,7 @@
             $response['status'] = 'ok';
             $response['message'] = 'Uploaded ' . $fileName . $fileExtension;
             $response['destination'] = $destinationDirectory . '/' . $fileName;
-            print json_encode($response);
+            print $response['status'];
         } else {
             $response['message'] = 'An error occurred uploading ' . $fileName;
             print $response['status'];

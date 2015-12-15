@@ -21,7 +21,7 @@
                     $pet['end_date'] = $row["end_date"];
                     $pet['start_date'] = $row["start_date"];
 
-                    $sql="select * from pet where pet_id = '" . $row["pet_id"] . "';";
+                    $sql = "select * from pet where pet_id = '" . $row["pet_id"] . "';";
                     
                     $petResult = mysqli_query($mysqli,$sql);
                     
