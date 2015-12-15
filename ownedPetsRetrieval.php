@@ -78,7 +78,6 @@
                 $sittin['currentStatus']      = $pet['status'];
                 $sittin['start']       = $pet['start_date'];
                 $sittin['end']         = $pet['end_date'];
-                $sittings[$counter]    = $sittin;
                 $response['mine_sitting'] = $sittings;
                 
                 $currentDate = date("Y-m-d H:i:s");
@@ -90,6 +89,8 @@
                 } else if ($currentDate > $sittin['end']){
                     $sittin['currentStatus'] = 'expired';
                 }
+                
+                $sittings[$counter]    = $sittin;
 
                 $sql="UPDATE pet_sitting
                   SET status = '"     . $sittin['currentStatus'] . 
@@ -104,49 +105,6 @@
                     $response['message'] = "Status updated";
                 }
             }
-//            $sql="select * from pet_sitting where pet_id = '" . $coolPetId . "';";
-//
-//            $result = mysqli_query($mysqli,$sql);
-//
-//            if (!$result) {
-//                $response['message'] = "selecting from pet_sitting Failed" . mysql_error();
-//                die(json_encode($response));
-//            } else {
-//
-//                if($result->num_rows >0){
-//                    while($row = mysqli_fetch_assoc($result)){
-//
-//                        $sql="select * from pet where pet_id = '" . $coolPetId . "';";
-//
-//                        $petResult = mysqli_query($mysqli,$sql);
-//
-//                        if (!$petResult) {
-//                            $response['message'] = "query 5 didn't work" . mysql_error();
-//                            die(json_encode($response));
-//                        } else {
-//
-//                            $petArray     = mysqli_fetch_assoc($petResult);
-//
-//                            $pet['pet_id']   = $petArray['pet_id'];
-//                            $pet['name']     = $petArray['name'];
-//                            $pet['bio']      = $petArray['bio'];
-//                            $pet['bathroom'] = $petArray['bathroom_instructions'];
-//                            $pet['exercise'] = $petArray['exercise_instructions'];
-//                            $pet['food']     = $petArray['food'];
-//                            $pet['emergency'] = $petArray['emergency_contact'];
-//                            $pet['other']    = $petArray['other'];
-//                            $pet['medicine'] = $petArray['medicine'];
-//                            $pet['vet']      = $petArray['veterinarian_info'];
-//                            $pet['hasImage'] = $petArray['hasImage'];
-//                            $response['status'] = 'ok';
-//                            $sittingPets[$counter] = $pet;
-//                            $response['mine_sitting'] = $sittingPets;
-//                            $counter++;
-//                        }
-//                    }
-//                } else {
-//                    $response['message'] = "User's pets aren't being sit";
-//                }
             
         }
         
