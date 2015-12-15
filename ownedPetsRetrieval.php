@@ -29,7 +29,7 @@
                         die(json_encode($response));
                     } else {
                         
-                        $petArray     = $petResult->mysqli_fetch_assoc();
+                        $petArray     = mysqli_fetch_assoc($petResult);
 
                         $pet['pet_id']   = $petArray['pet_id'];
                         $coolPets[$counter] = $petArray['pet_id'];
