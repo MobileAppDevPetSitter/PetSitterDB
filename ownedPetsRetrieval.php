@@ -57,6 +57,7 @@
         
         //selecting pet instances of pets owned
         
+        $counter = 0;
         foreach($coolPets as $coolPetId){
         
             $sql="select * from pet_sitting where pet_id = '" . $coolPetId . "';";
@@ -69,7 +70,6 @@
             } else {
 
                 if($result->num_rows >0){
-                    $counter = 0;
                     while($row = mysqli_fetch_assoc($result)){
 
                         $sql="select * from pet where pet_id = '" . $coolPetId . "';";
@@ -99,7 +99,6 @@
                             $counter++;
                         }
                     }
-                    print json_encode($response);
                 } else {
                     $response['message'] = "User's pets aren't being sit";
                 }
