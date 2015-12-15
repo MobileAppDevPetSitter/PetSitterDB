@@ -82,14 +82,6 @@
                 
                 $currentDate = date("YYYY-MM-DD");
 
-<<<<<<< HEAD
-                if($sittin != 'pending' && $sittin['start'] < $currentDate && $sittin['end'] > $currentDate ) {
-                    $sittin['currentStatus'] = 'current';
-                } else if ($sittin != 'pending' && $currentDate < $sittin['start']){
-                    $sittin['currentStatus'] = 'upcoming';
-                } else if ($sittin != 'pending' && $currentDate > $sittin['end']){
-                    $sittin['currentStatus'] = 'expired';
-=======
                 if($sittin['currentStatus'] != "pending") {
                     if($sittin['start'] < $currentDate && $sittin['end'] > $currentDate ) {
                         $sittin['currentStatus'] = 'current';
@@ -98,7 +90,6 @@
                     } else if ($currentDate > $sittin['end']){
                         $sittin['currentStatus'] = 'expired';
                     }
->>>>>>> 1cdeb1346dfc868110be67835807508a6353e788
                 }
                 
                 $sittings[$counter]    = $sittin;
