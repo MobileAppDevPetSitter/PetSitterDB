@@ -44,9 +44,12 @@
             $response['status'] = 'ok';
             $response['message'] = 'Uploaded ' . $fileName . $fileExtension;
             $response['destination'] = $destinationDirectory . '/' . $fileName;
+            
+            $sql = "Update " . $type . " set hasImage = 1 where " . $type . "_id = '" . $fileName ."';";
+            
             echo $response['status'];
         } else {
-            $response['message'] = 'An error occurred uploading ' . $fileName;
+            $response['message'] = 'An error occurred uploading ' . $fileName ;
             echo $response['status'];
         }
     } else {
