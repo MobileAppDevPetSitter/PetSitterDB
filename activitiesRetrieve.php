@@ -19,11 +19,12 @@
             if($result->num_rows >0){
                 $counter = 0;
                 while($activity = mysqli_fetch_assoc($result)){
-                        $activity['completion_date'] = date("YYYY-MM-DD", $activity['completion_date']);
-                        $response['status'] = 'ok';
-                        $activities[$counter] = $activity;
-                        $response['activities'] = $activities;
-                        $counter++;
+                    $date = date_create($activity["completion_time"]);
+                    $activity["completion_time"] = date_format($date, "Y/m/d")
+                    $response['status'] = 'ok';
+                    $activities[$counter] = $activity;
+                    $response['activities'] = $activities;
+                    $counter++;
                 }
             } else {
                 $response['message'] = "Instance has no activities";
