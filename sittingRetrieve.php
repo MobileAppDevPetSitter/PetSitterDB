@@ -24,7 +24,6 @@
             
             $response['sitter_id']   = $pet['sitter_id'];
             $response['pet_id']      = $pet['pet_id'];
-            $response['name']        = $pet['name'];
             $response['currentStatus']      = $pet['status'];
             $response['start']       = $pet['start_date'];
             $response['end']         = $pet['end_date'];
@@ -32,11 +31,11 @@
             $currentDate = date("Y-m-d H:i:s");
             
             if($response['start'] < $currentDate && $response['end'] > $currentDate ) {
-                $newStatus = 'current';
+                $response['currentStatus'] = 'current';
             } else if ($currentDate < $response['start']){
-                $newStatus = 'upcoming';
+                $response['currentStatus'] = 'upcoming';
             } else if ($currentDate > $response['end']){
-                $newStatus = 'expired';
+                $response['currentStatus'] = 'expired';
             }
             
             $sql="UPDATE pet_sitting
@@ -44,12 +43,12 @@
               "' WHERE pet_sitting_id = '" . $sitting_id . "';";
             
             if (!$result) {
+                $response['status'] = 'bad';
                 $response['message'] = "Status update failed" . mysqli_error();
                 die(json_encode($response));
             } else {
                 $response['status']  = 'ok';
                 $response['message'] = "Status updated";
-                print json_encode($response);
             }
             
             
