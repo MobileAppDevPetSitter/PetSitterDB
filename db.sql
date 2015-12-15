@@ -54,6 +54,6 @@ create table activity (
     description varchar(255) not null,
     status varchar(10) not null,
     completion_date timestamp not null,
-    hasImage TINYINT(1),
+    hasImage TINYINT(1) DEFAULT 0,
     primary key(activity_id)
 ) character set 'utf8';
