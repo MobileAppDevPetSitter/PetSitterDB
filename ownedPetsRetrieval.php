@@ -78,6 +78,7 @@
                 $sittin['currentStatus']      = $pet['status'];
                 $sittin['start']       = $pet['start_date'];
                 $sittin['end']         = $pet['end_date'];
+                $sittin['pet_sitting_id'] = $pet['pet_sitting_id'];
                 
                 $currentDate = date("Y-m-d H:i:s");
 
