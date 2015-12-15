@@ -1,16 +1,15 @@
 <?php
     require '/home/robert/config/conn.php';
     $response['status'] = 'bad';
-    if(isset($_POST['pet_sitting_id']) && isset($_POST['description']) && isset($_POST['status']) && isset($_POST['photo_path'])){
+    if(isset($_POST['pet_sitting_id']) && isset($_POST['description']) && isset($_POST['status']) ){
         
         $sitting_id       = htmlspecialchars($_POST['pet_sitting_id']);                
         $description        = htmlspecialchars($_POST['description']);
         $status   = htmlspecialchars($_POST['status']);
-        $photo   = htmlspecialchars($_POST['photo_path']);
 
         // Check for email query
-        $sql="INSERT into activity (pet_sitting_id,description,status,photo_path) 
-              VALUES ('" . $sitting_id . "','" . $description . "','" . $status . "','" . $photo . "');";
+        $sql="INSERT into activity (pet_sitting_id,description,status) 
+              VALUES ('" . $sitting_id . "','" . $description . "','" . $status . "');";
 
         //echo $sql;
         $result = mysqli_query($mysqli,$sql);
@@ -29,7 +28,7 @@
         
     } else {
         
-        $response['message'] =  "Must set 'pet_sitting_id','description','status','photo_path'";
+        $response['message'] =  "Must set 'pet_sitting_id','description','status'";
         print json_encode($response);
         
     }
