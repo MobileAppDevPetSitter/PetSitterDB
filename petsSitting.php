@@ -29,12 +29,18 @@
                         $response['message'] = "Query Failed" . mysql_error();
                         die(json_encode($response));
                     } else {
-                        $petArray     = $petResult->fetch_row();
-                        $pet['pet_id']   = $petArray[0];
-                        $pet['name']     = $petArray[1];
-                        $pet['bio']      = $petArray[2];
-                        $pet['bathroom'] = $petArray[3];
-                        $pet['exercise'] = $petArray[4];
+                        $petArray     = mysqli_fetch_assoc($petResult);
+                        $pet['pet_id']   = $petArray['pet_id'];
+                        $coolPets[$counter] = $petArray['pet_id'];
+                        $pet['name']     = $petArray['name'];
+                        $pet['bio']      = $petArray['bio'];
+                        $pet['bathroom'] = $petArray['bathroom_instructions'];
+                        $pet['exercise'] = $petArray['exercise_instructions'];
+                        $pet['food']     = $petArray['food'];
+                        $pet['emergency'] = $petArray['emergency_contact'];
+                        $pet['other']    = $petArray['other'];
+                        $pet['medicine'] = $petArray['medicine'];
+                        $pet['vet']      = $petArray['veterinarian_info'];
                         $response['status'] = 'ok';
                         $pets[$counter] = $pet;
                         $response['pets'] = $pets;

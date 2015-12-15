@@ -47,10 +47,10 @@
             print json_encode($response);
         } else {
             $response['message'] = 'An error occurred uploading ' . $fileName;
-            print json_encode($response);
+            print $response['status'];
         }
     } else {
         $response['message'] = "must set 'type','id'";
-        print json_encode($response);
+        print $response['status'];
     }
 ?>
