@@ -31,7 +31,7 @@ create table pet (
     veterinarian_info varchar(512),
     medicine varchar(512),
     food varchar(512),
-    hasImage TINYINT(1),
+    hasImage TINYINT(1) DEFAULT 0,
     primary key(pet_id)
 ) character set 'utf8';
 
