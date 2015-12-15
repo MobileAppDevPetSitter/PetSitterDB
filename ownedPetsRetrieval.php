@@ -91,7 +91,7 @@
 
                 $sql="UPDATE pet_sitting
                   SET status = '"     . $response['currentStatus'] . 
-                  "' WHERE pet_sitting_id = '" . $sitting_id . "';";
+                  "' WHERE pet_sitting_id = '" . $pet['pet_sitting_id'] . "';";
 
                 if (!$result) {
                     $response['status'] = 'bad';
