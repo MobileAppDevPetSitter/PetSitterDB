@@ -103,9 +103,6 @@
                     $response['status']  = 'ok';
                     $response['message'] = "Status updated";
                 }
-
-
-                print json_encode($response);
             }
 //            $sql="select * from pet_sitting where pet_id = '" . $coolPetId . "';";
 //
