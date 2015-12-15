@@ -19,8 +19,6 @@
             if($result->num_rows >0){
                 $counter = 0;
                 while($row = mysqli_fetch_assoc($result)){
-                        
-                        $activity    = mysqli_fetch_assoc($activityResult);
                         $response['status'] = 'ok';
                         $activities[$counter] = $activity;
                         $response['activities'] = $activities;
