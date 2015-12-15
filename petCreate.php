@@ -2,7 +2,7 @@
     require '/home/robert/config/conn.php';
 	$response["status"] = array("status" => "bad");
     
-    if(isset($_POST['user_id']) && isset($_POST['name']) && isset($_POST['bio']) && isset($_POST['medicine']) && isset($_POST['bathroom']) && isset($_POST['exercise']) && isset($_POST['emergency_contact']) && isset($_POST['veterinarian']) && isset($_POST['other'])){
+    if(isset($_POST['user_id']) && isset($_POST['name']) && isset($_POST['bio']) && isset($_POST['medicine']) && isset($_POST['bathroom']) && isset($_POST['exercise']) && isset($_POST['emergency_contact']) && isset($_POST['food']) && isset($_POST['veterinarian']) && isset($_POST['other'])){
         
 	$pet_medicine   = htmlspecialchars($_POST['medicine']);
         $pet_name       = htmlspecialchars($_POST['name']);
@@ -13,10 +13,11 @@
         $pet_emergency  = htmlspecialchars($_POST['emergency_contact']);
         $pet_other      = htmlspecialchars($_POST['other']);
         $owner_id       = htmlspecialchars($_POST['user_id']);
+        $food           = htmlspecialchars($_POST['food']);
 
         // Check for email query
-        $sql="INSERT into pet (name,bio,bathroom_instructions,medicine,exercise_instructions,veterinarian_info,emergency_contact,other) 
-              VALUES ('" . $pet_name . "','" . $pet_bio . "','" . $pet_bathroom . "','" . $pet_medicine  . "','" . $pet_exercise . "','" . $pet_veterinarian_info . "','" . $pet_emergency . "','" . $pet_other . "');";
+        $sql="INSERT into pet (name,bio,food,bathroom_instructions,medicine,exercise_instructions,veterinarian_info,emergency_contact,other) 
+              VALUES ('" . $pet_name . "','" . $pet_bio . "','" . $food "','" . $pet_bathroom . "','" . $pet_medicine  . "','" . $pet_exercise . "','" . $pet_veterinarian_info . "','" . $pet_emergency . "','" . $pet_other . "');";
 
         //echo $sql;
         $result = mysqli_query($mysqli,$sql);
@@ -43,7 +44,7 @@
             }
         }    
     } else {    
-        $response['message'] =  "Must set 'name', 'bio', 'bathroom', 'exercise', 'emergency_contact','veterinarian_info','other'";
+        $response['message'] =  "Must set 'name', 'food', 'bio', 'bathroom', 'exercise', 'emergency_contact','veterinarian_info','other'";
         print json_encode($response);
     }
 
