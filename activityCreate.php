@@ -17,7 +17,7 @@
 
         //echo mysql_error();
         if (!$result) {
-            $response['message'] = "Query Failed" . mysqli_error();
+            $response['message'] = "Query Failed" . mysqli_error($result);
             die(json_encode($response));
         } else {
             $id = mysqli_insert_id($mysqli);
